@@ -9,8 +9,6 @@ class Site(models.Model):
         related_name="sites",
     )
     domain = models.CharField(max_length=253)
-    allowed_domains = models.JSONField(default=list, blank=True)
-    filter_allowed_domains = models.BooleanField(default=False)
 
     class Meta:
         unique_together = [("user", "domain")]

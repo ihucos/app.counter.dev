@@ -5,7 +5,7 @@ from .models import Count, Site
 
 @admin.register(Site)
 class SiteAdmin(admin.ModelAdmin):
-    list_display = ("domain", "user", "filter_allowed_domains")
+    list_display = ("domain", "user")
     search_fields = ("domain", "user__username")
 
 

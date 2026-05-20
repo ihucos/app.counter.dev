@@ -6,7 +6,7 @@ from .models import Site
 class SiteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Site
-        fields = ["id", "domain", "allowed_domains", "filter_allowed_domains"]
+        fields = ["id", "domain"]
         read_only_fields = ["id"]
 
 

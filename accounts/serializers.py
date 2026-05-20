@@ -7,7 +7,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "email", "timezone", "prefs"]
+        fields = ["id", "username", "email", "timezone", "prefs", "allowed_domains", "filter_allowed_domains"]
         read_only_fields = ["id"]
 
 
@@ -76,6 +76,14 @@ class TimezoneSerializer(serializers.Serializer):
 
 class PrefsSerializer(serializers.Serializer):
     prefs = serializers.DictField(child=serializers.CharField())
+
+
+class AllowedDomainsSerializer(serializers.Serializer):
+    allowed_domains = serializers.ListField(child=serializers.CharField())
+
+
+class FilterAllowedDomainsSerializer(serializers.Serializer):
+    filter_allowed_domains = serializers.BooleanField()
 
 
 class PasswordResetRequestSerializer(serializers.Serializer):
