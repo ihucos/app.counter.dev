@@ -78,5 +78,5 @@ def ingress(request):
         ignore_conflicts=True,
     )
 
-    # Fetch host objects
+    # Fetch host objects in bulk
     # ...
