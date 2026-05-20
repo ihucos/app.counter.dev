@@ -35,10 +35,13 @@ class Migration(migrations.Migration):
                 ('metric', models.CharField(max_length=64)),
                 ('value', models.CharField(max_length=255)),
                 ('count', models.BigIntegerField(default=0)),
-                ('site', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='counts', to='analytics.site')),
+                ('site', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='counts', to='counts.site')),
             ],
             options={
-                'indexes': [models.Index(fields=['site', 'date'], name='analytics_c_site_id_cc1f44_idx'), models.Index(fields=['site', 'metric'], name='analytics_c_site_id_d16070_idx')],
+                'indexes': [
+                    models.Index(fields=['site', 'date'], name='counts_coun_site_id_fee411_idx'),
+                    models.Index(fields=['site', 'metric'], name='counts_coun_site_id_489487_idx'),
+                ],
                 'unique_together': {('site', 'date', 'metric', 'value')},
             },
         ),
